@@ -1,27 +1,27 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { useParams } from "react-router-dom";
-import BackButton from "../components/BackButton";
+import { useEffect, useState } from "react"
+import axios from "axios"
+import { useParams } from "react-router-dom"
+import BackButton from "../components/BackButton"
 
 const ShowSong = () => {
-  const [song, setSong] = useState({});
-  const [loading, setLoading] = useState(false);
-  const { id } = useParams();
+  const [song, setSong] = useState({})
+  const [loading, setLoading] = useState(false)
+  const { id } = useParams()
 
   useEffect(() => {
-    setLoading(true);
+    setLoading(true)
 
     axios
-      .get(`http://localhost:5000/v1/songs/${id}`)
+      .get(`${import.meta.env.VITE_API_URL}/v1/songs/${id}`)
       .then((response) => {
-        setSong(response.data);
-        setLoading(false);
+        setSong(response.data)
+        setLoading(false)
       })
       .catch((error) => {
-        console.log(error);
-        setLoading(false);
-      });
-  }, []);
+        console.log(error)
+        setLoading(false)
+      })
+  }, [])
 
   return (
     <div className="p-4 flex flex-col items-center">
@@ -66,7 +66,7 @@ const ShowSong = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default ShowSong;
+export default ShowSong
