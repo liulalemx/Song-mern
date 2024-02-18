@@ -5,7 +5,7 @@ import BackButton from "../components/BackButton"
 import { Song } from "@/types/Song"
 
 const ShowSong = () => {
-  const [song, setSong] = useState<Song>()
+  const [song, setSong] = useState<Song | null>(null)
   const [loading, setLoading] = useState(false)
   const { id } = useParams()
 
@@ -20,7 +20,7 @@ const ShowSong = () => {
       })
       .catch((error) => {
         console.log(error)
-        setLoading(false)
+        setLoading(true)
       })
   }, [id])
 
@@ -28,7 +28,7 @@ const ShowSong = () => {
     <div className="p-4 flex flex-col items-center">
       <BackButton />
       <h1 className="text-3xl my-4">Song Details</h1>
-      {loading ? (
+      {loading || song === null ? (
         <p>...</p>
       ) : (
         <div className="flex flex-col border-2 border-primary/50 rounded-xl w-fit p-4">
