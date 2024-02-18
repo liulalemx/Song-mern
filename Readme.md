@@ -11,12 +11,6 @@
 - [Frontend](./frontend/)
 - [Backend](./backend/)
 
-## Usage
-
-1. Clone the repository
-1. Run `mingw32-make -f .\MakeFile`
-1. Run `.\Main.exe`
-
 ## License
 
 This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) License
