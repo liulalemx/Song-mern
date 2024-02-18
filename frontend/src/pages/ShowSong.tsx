@@ -1,27 +1,28 @@
-import { useEffect, useState } from "react"
-import axios from "axios"
-import { useParams } from "react-router-dom"
-import BackButton from "../components/BackButton"
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import BackButton from "../components/BackButton";
+import { Song } from "@/types/Song";
 
 const ShowSong = () => {
-  const [song, setSong] = useState({})
-  const [loading, setLoading] = useState(false)
-  const { id } = useParams()
+  const [song, setSong] = useState<Song>();
+  const [loading, setLoading] = useState(false);
+  const { id } = useParams();
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
 
     axios
       .get(`${import.meta.env.VITE_API_URL}/v1/songs/${id}`)
       .then((response) => {
-        setSong(response.data)
-        setLoading(false)
+        setSong(response.data);
+        setLoading(false);
       })
       .catch((error) => {
-        console.log(error)
-        setLoading(false)
-      })
-  }, [])
+        console.log(error);
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <div className="p-4 flex flex-col items-center">
@@ -33,40 +34,40 @@ const ShowSong = () => {
         <div className="flex flex-col border-2 border-primary/50 rounded-xl w-fit p-4">
           <div className="my-4">
             <span className="text-xl mr-4 text-gray-500">Id</span>
-            <span>{song._id}</span>
+            <span>{song!._id}</span>
           </div>
           <div className="my-4">
             <span className="text-xl mr-4 text-gray-500">Title</span>
-            <span>{song.title}</span>
+            <span>{song!.title}</span>
           </div>
           <div className="my-4">
             <span className="text-xl mr-4 text-gray-500">Artist</span>
-            <span>{song.artist}</span>
+            <span>{song!.artist}</span>
           </div>
           <div className="my-4">
             <span className="text-xl mr-4 text-gray-500">Album</span>
-            <span>{song.album}</span>
+            <span>{song!.album}</span>
           </div>
           <div className="my-4">
             <span className="text-xl mr-4 text-gray-500">Genre</span>
-            <span>{song.genre}</span>
+            <span>{song!.genre}</span>
           </div>
           <div className="my-4">
             <span className="text-xl mr-4 text-gray-500">Publish Year</span>
-            <span>{song.publishYear}</span>
+            <span>{song!.publishYear}</span>
           </div>
           <div className="my-4">
             <span className="text-xl mr-4 text-gray-500">Create Time</span>
-            <span>{new Date(song.createdAt).toString()}</span>
+            <span>{new Date(song!.createdAt!).toString()}</span>
           </div>
           <div className="my-4">
             <span className="text-xl mr-4 text-gray-500">Last Update Time</span>
-            <span>{new Date(song.updatedAt).toString()}</span>
+            <span>{new Date(song!.updatedAt!).toString()}</span>
           </div>
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default ShowSong
+export default ShowSong;

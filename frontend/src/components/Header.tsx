@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
-import Container from "./ui/container";
-import { Button } from "./ui/button";
-import { Sun, Moon, Menu, Plus, icons } from "lucide-react";
-import { useTheme } from "./ThemeProvider";
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { Link } from "react-router-dom"
+import Container from "./ui/container"
+import { Button } from "./ui/button"
+import { Sun, Moon, Menu, Plus } from "lucide-react"
+import { useTheme } from "./ThemeProvider"
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet"
 
 const routes = [
   {
@@ -18,10 +18,10 @@ const routes = [
     href: "/genres",
     label: "Genres",
   },
-];
+]
 
 const Header = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme()
 
   return (
     <header className="sm:flex sm:justify-between py-3 px-4 border-b">
@@ -86,7 +86,7 @@ const Header = () => {
         </div>{" "}
       </Container>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

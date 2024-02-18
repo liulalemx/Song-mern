@@ -6,4 +6,6 @@ export type Song = {
   album: string;
   genre: string;
   publishYear: number;
+  createdAt?: Date;
+  updatedAt?: Date;
 };

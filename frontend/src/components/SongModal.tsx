@@ -1,3 +1,4 @@
+import { Song } from "@/types/Song";
 import {
   X,
   Music,
@@ -10,7 +11,12 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const SongModal = ({ song, onClose }) => {
+interface ModalProps {
+  song: Song;
+  onClose: () => void;
+}
+
+const SongModal: React.FC<ModalProps> = ({ song, onClose }) => {
   return (
     <div
       className="fixed bg-foreground/80 transition all duration-300  top-0 left-0 right-0 bottom-0 z-50 flex justify-center items-center"
