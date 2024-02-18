@@ -1,28 +1,28 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { useParams } from "react-router-dom";
-import BackButton from "../components/BackButton";
-import { Song } from "@/types/Song";
+import { useEffect, useState } from "react"
+import axios from "axios"
+import { useParams } from "react-router-dom"
+import BackButton from "../components/BackButton"
+import { Song } from "@/types/Song"
 
 const ShowSong = () => {
-  const [song, setSong] = useState<Song>();
-  const [loading, setLoading] = useState(false);
-  const { id } = useParams();
+  const [song, setSong] = useState<Song>()
+  const [loading, setLoading] = useState(false)
+  const { id } = useParams()
 
   useEffect(() => {
-    setLoading(true);
+    setLoading(true)
 
     axios
       .get(`${import.meta.env.VITE_API_URL}/v1/songs/${id}`)
       .then((response) => {
-        setSong(response.data);
-        setLoading(false);
+        setSong(response.data)
+        setLoading(false)
       })
       .catch((error) => {
-        console.log(error);
-        setLoading(false);
-      });
-  }, []);
+        console.log(error)
+        setLoading(false)
+      })
+  }, [])
 
   return (
     <div className="p-4 flex flex-col items-center">
@@ -32,10 +32,6 @@ const ShowSong = () => {
         <p>...</p>
       ) : (
         <div className="flex flex-col border-2 border-primary/50 rounded-xl w-fit p-4">
-          <div className="my-4">
-            <span className="text-xl mr-4 text-gray-500">Id</span>
-            <span>{song!._id}</span>
-          </div>
           <div className="my-4">
             <span className="text-xl mr-4 text-gray-500">Title</span>
             <span>{song!.title}</span>
@@ -67,7 +63,7 @@ const ShowSong = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default ShowSong;
+export default ShowSong

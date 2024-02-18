@@ -1,25 +1,25 @@
-import { useState } from "react";
-import BackButton from "../components/BackButton";
-import { useNavigate, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { Song } from "../types/Song";
+import { useState } from "react"
+import BackButton from "../components/BackButton"
+import { useNavigate, useParams } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import { Song } from "../types/Song"
 
 const EditSong = () => {
-  const { id } = useParams();
+  const { id } = useParams()
 
   const songs = useSelector(
-    (state: { songs: { songs: Song[] } }) => state.songs.songs,
-  );
-  const song: Song = songs.find((s: Song) => s.id === id) as Song;
+    (state: { songs: { songs: Song[] } }) => state.songs.songs
+  )
+  const song: Song = songs.find((s: Song) => s.id === id) as Song
 
-  const [title, setTitle] = useState(song.title);
-  const [artist, setArtist] = useState(song.artist);
-  const [album, setAlbum] = useState(song.album);
-  const [genre, setGenre] = useState(song.genre);
-  const [publishYear, setPublishYear] = useState(song.publishYear);
+  const [title, setTitle] = useState(song.title)
+  const [artist, setArtist] = useState(song.artist)
+  const [album, setAlbum] = useState(song.album)
+  const [genre, setGenre] = useState(song.genre)
+  const [publishYear, setPublishYear] = useState(song.publishYear)
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const handleEditSong = () => {
     const data = {
@@ -28,11 +28,11 @@ const EditSong = () => {
       album,
       genre,
       publishYear,
-    };
+    }
 
-    dispatch({ type: "UPDATE_SONG", data: data, id: id });
-    navigate("/");
-  };
+    dispatch({ type: "UPDATE_SONG", data: data, id: id })
+    navigate("/")
+  }
 
   return (
     <div className="p-4 flex flex-col items-center">
@@ -45,7 +45,7 @@ const EditSong = () => {
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="border-2 border-gray-500 px-4 py-2 w-full"
+            className="border-2 border-gray-500 px-4 py-2 w-full text-black"
           />
         </div>
         <div className="my4">
@@ -54,7 +54,7 @@ const EditSong = () => {
             type="text"
             value={artist}
             onChange={(e) => setArtist(e.target.value)}
-            className="border-2 border-gray-500 px-4 py-2 w-full"
+            className="border-2 border-gray-500 px-4 py-2 w-full text-black"
           />
         </div>
         <div className="my4">
@@ -63,7 +63,7 @@ const EditSong = () => {
             type="text"
             value={album}
             onChange={(e) => setAlbum(e.target.value)}
-            className="border-2 border-gray-500 px-4 py-2 w-full"
+            className="border-2 border-gray-500 px-4 py-2 w-full text-black"
           />
         </div>
         <div className="my4">
@@ -72,7 +72,7 @@ const EditSong = () => {
             type="text"
             value={genre}
             onChange={(e) => setGenre(e.target.value)}
-            className="border-2 border-gray-500 px-4 py-2 w-full"
+            className="border-2 border-gray-500 px-4 py-2 w-full text-black"
           />
         </div>
         <div className="my4">
@@ -81,7 +81,7 @@ const EditSong = () => {
             type="number"
             value={publishYear}
             onChange={(e) => setPublishYear(parseInt(e.target.value))}
-            className="border-2 border-gray-500 px-4 py-2 w-full"
+            className="border-2 border-gray-500 px-4 py-2 w-full text-black"
           />
         </div>
         <button
@@ -92,7 +92,7 @@ const EditSong = () => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default EditSong;
+export default EditSong

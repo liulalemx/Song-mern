@@ -1,4 +1,4 @@
-import { Song } from "@/types/Song";
+import { Song } from "@/types/Song"
 import {
   X,
   Music,
@@ -8,12 +8,12 @@ import {
   Info,
   Trash,
   Pencil,
-} from "lucide-react";
-import { Link } from "react-router-dom";
+} from "lucide-react"
+import { Link } from "react-router-dom"
 
 interface ModalProps {
-  song: Song;
-  onClose: () => void;
+  song: Song
+  onClose: () => void
 }
 
 const SongModal: React.FC<ModalProps> = ({ song, onClose }) => {
@@ -51,18 +51,18 @@ const SongModal: React.FC<ModalProps> = ({ song, onClose }) => {
         </div>
         <div className="flex gap-x-10">
           <Link to={`/songs/details/${song.id}`}>
-            <Info className="text-2xl text-green-800 hover:text-black" />
+            <Info className="text-2xl text-green-800 hover:text-foreground" />
           </Link>
           <Link to={`/songs/edit/${song.id}`}>
-            <Pencil className="text-2xl text-yellow-600 hover:text-black" />
+            <Pencil className="text-2xl text-yellow-600 hover:text-foreground" />
           </Link>
           <Link to={`/songs/delete/${song.id}`}>
-            <Trash className="text-2xl text-red-600 hover:text-black" />
+            <Trash className="text-2xl text-red-600 hover:text-foreground" />
           </Link>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SongModal;
+export default SongModal
