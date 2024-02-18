@@ -22,7 +22,7 @@ const ShowSong = () => {
         console.log(error)
         setLoading(false)
       })
-  }, [])
+  }, [id])
 
   return (
     <div className="p-4 flex flex-col items-center">
