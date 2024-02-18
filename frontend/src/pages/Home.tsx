@@ -1,32 +1,32 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getSongsFetch } from "../slices/songSlice";
-import { getStatsFetch } from "@/slices/statSlice";
-import { Song } from "../types/Song";
-import Container from "@/components/ui/container";
-import SongList from "@/components/SongList";
-import Loading from "@/components/Loading";
-import StatsCard from "@/components/StatsCard";
-import { Stat } from "@/types/Stat";
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { getSongsFetch } from "../slices/songSlice"
+import { getStatsFetch } from "@/slices/statSlice"
+import { Song } from "../types/Song"
+import Container from "@/components/ui/container"
+import SongList from "@/components/SongList"
+import Loading from "@/components/Loading"
+import StatsCard from "@/components/StatsCard"
+import { Stat } from "@/types/Stat"
 
 const Home = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const songs = useSelector(
-    (state: { songs: { songs: Song[] } }) => state.songs.songs,
-  );
+    (state: { songs: { songs: Song[] } }) => state.songs.songs
+  )
   const isLoading = useSelector(
-    (state: { songs: { isLoading: boolean } }) => state.songs.isLoading,
-  );
+    (state: { songs: { isLoading: boolean } }) => state.songs.isLoading
+  )
   const stats = useSelector(
-    (state: { stats: { stats: Stat } }) => state.stats.stats,
-  );
+    (state: { stats: { stats: Stat } }) => state.stats.stats
+  )
 
   useEffect(() => {
     if (songs.length === 0) {
-      dispatch(getSongsFetch());
-      dispatch(getStatsFetch());
+      dispatch(getSongsFetch())
+      dispatch(getStatsFetch())
     }
-  }, [dispatch, songs.length]);
+  }, [dispatch, songs.length])
 
   return (
     <Container>
@@ -38,8 +38,8 @@ const Home = () => {
           >
             <div className="h-full w-full flex justify-center items-center text-center gap-x-8 px-4">
               <div className="flex flex-col justify-center text-left gap-y-2 text-white">
-                <p className="text-xl font-medium">Your Playlist</p>
-                <h1 className="text-4xl font-bold">Statistics</h1>
+                {/* <p className="text-xl font-medium">Your Playlist</p> */}
+                <h1 className="text-4xl font-bold">Your Playlist</h1>
                 <p className="text-lg text-wrap">
                   Enjoy vivid emotions with this stunning music collection.
                   <br /> Each song is a story.
@@ -71,7 +71,7 @@ const Home = () => {
         )}
       </div>
     </Container>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
