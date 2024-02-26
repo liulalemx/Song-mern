@@ -6,6 +6,8 @@
   <a href="https://songmern.netlify.app/">songmern.netlify.app</a>
 </p>
 
+song-mern is deployed on a free render server that spins down after inactivity. As a result, expect initial cold start times.
+
 ### Getting Started
 
 - [Frontend](./frontend/)
